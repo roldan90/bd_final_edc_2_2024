@@ -15,7 +15,6 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
-    @include('sweetalert::alert')
     @include('shared/menu')
     <div class="container">
         <div class="row">

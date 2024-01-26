@@ -46,7 +46,16 @@
         </tbody>
     </table>
 
+
     @push('scripts')
         <script src="{{ asset('js/proveedores.js') }}"></script>
+        <script>
+            // Obtener el mensaje de la sesión
+            let mensaje = @json(session('mensaje'));
+            if(mensaje != null){
+                alertify.success(mensaje); 
+            }
+           
+        </script>
     @endpush
 @endsection

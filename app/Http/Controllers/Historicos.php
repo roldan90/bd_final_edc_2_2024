@@ -64,7 +64,7 @@ class Historicos extends Controller
             $item->id_proveedor = $request->id_proveedor;
             $item->id_usuario = auth()->user()->id;
             $item->save();
-           
+            session()->flash('mensaje', '¡Historico creado con éxito!');
             return redirect(route('historico-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -126,7 +126,7 @@ class Historicos extends Controller
             $item->id_proveedor = $request->id_proveedor;
             $item->id_usuario = auth()->user()->id;
             $item->save();
-           
+            session()->flash('mensaje', '¡Historico actualizado con éxito!');
             return redirect(route('historico-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -144,8 +144,9 @@ class Historicos extends Controller
         try {
             $item = Historico::find($id);
             $item->delete();
-           
+            session()->flash('mensaje', '¡Historico eliminado con éxito!');
             return redirect(route('historico-index'));
+            
         } catch (\Throwable $th) {
             return $th->getMessage();
         }

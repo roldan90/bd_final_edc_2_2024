@@ -61,7 +61,7 @@ class Productos extends Controller
             $item->precio = $request->precio;
             $item->id_categoria = $request->id_categoria;
             $item->save();
-            
+            session()->flash('mensaje', '¡Producto creado con éxito!');
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -112,7 +112,7 @@ class Productos extends Controller
             $item->precio = $request->precio;
             $item->id_categoria = $request->id_categoria;
             $item->save();
-           
+            session()->flash('mensaje', '¡Producto actualizado con éxito!');
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -130,7 +130,7 @@ class Productos extends Controller
         try {
             $item = Producto::find($id);
             $item->delete();
-            
+            session()->flash('mensaje', '¡Producto eliminado con éxito!');
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();

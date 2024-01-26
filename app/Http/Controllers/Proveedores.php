@@ -56,7 +56,7 @@ class Proveedores extends Controller
             $item->nombre = $request->nombre;
             $item->id_direccion = $id_direccion;
             $item->save();
-            
+            session()->flash('mensaje', '¡Proveedor creado con éxito!');
             return redirect(route('proveedor-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -123,7 +123,7 @@ class Proveedores extends Controller
                 $item->materno = $request->materno;
                 $item->nombre = $request->nombre;
                 $item->save();
-                
+                session()->flash('mensaje', '¡Proveedor actualizado con éxito!');
                 return redirect(route('proveedor-index'));
             } 
             
@@ -160,6 +160,7 @@ class Proveedores extends Controller
             if($item->delete()) {
                 $item = Direccion::find($id_direccion);
                 $item->delete();
+                session()->flash('mensaje', '¡Proveedor eliminado con éxito!');
                 return redirect(route('proveedor-index'));
             }
            
