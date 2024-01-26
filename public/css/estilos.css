@@ -1,0 +1,16 @@
+
+.colbgc {
+    background-color: rgb(33, 37, 41);
+    color: white;
+    margin-top: 15px;
+}
+
+body {
+    background-color:rgb(72, 76, 79);
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputbgc {
+    background-color: #224479; 
+    color : white
+}
