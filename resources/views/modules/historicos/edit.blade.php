@@ -6,11 +6,11 @@
         @csrf
         @method('put')
         <label for="fecha_entrega">Fecha Entrega</label>
-        <input type="date" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ $historico->fecha_entrega }}">
+        <input type="date" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ $historico->fecha_entrega }}" required>
         <label for="cantidad">Cantidad</label>
-        <input type="number" name="cantidad" id="cantidad" class="form-control" value="{{ $historico->cantidad }}">
+        <input type="number" name="cantidad" id="cantidad" class="form-control" value="{{ $historico->cantidad }}" required>
         <label for="id_producto">Producto</label>
-        <select name="id_producto" id="id_producto" class="form-select">
+        <select name="id_producto" id="id_producto" class="form-select" required>
             <option value="">Selecciona un producto</option>
             @foreach ($productos as $item)
                 @if ($historico->id_producto == $item->id)
@@ -22,7 +22,7 @@
             @endforeach
         </select>
         <label for="id_proveedor">Proveedor</label>
-        <select name="id_proveedor" id="id_proveedor" class="form-select">
+        <select name="id_proveedor" id="id_proveedor" class="form-select" required>
             <option value="">Selecciona un proveedor</option>
             @foreach ($proveedores as $item)
                 @if ($historico->id_proveedor == $item->id)
