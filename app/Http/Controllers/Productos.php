@@ -6,7 +6,6 @@ use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class Productos extends Controller
 {
@@ -62,7 +61,7 @@ class Productos extends Controller
             $item->precio = $request->precio;
             $item->id_categoria = $request->id_categoria;
             $item->save();
-            toast('Producto agregado con exito!','success');
+            
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -113,7 +112,7 @@ class Productos extends Controller
             $item->precio = $request->precio;
             $item->id_categoria = $request->id_categoria;
             $item->save();
-            toast('Producto actualizado con exito!','success');
+           
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -131,7 +130,7 @@ class Productos extends Controller
         try {
             $item = Producto::find($id);
             $item->delete();
-            toast('Eliminado con exito!','success');
+            
             return redirect(route('producto-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();

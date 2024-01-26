@@ -6,7 +6,7 @@ use App\Models\Historico;
 use App\Models\Producto;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
+
 
 class Historicos extends Controller
 {
@@ -64,7 +64,7 @@ class Historicos extends Controller
             $item->id_proveedor = $request->id_proveedor;
             $item->id_usuario = auth()->user()->id;
             $item->save();
-            toast('Historico agregado con exito!','success');
+           
             return redirect(route('historico-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -126,7 +126,7 @@ class Historicos extends Controller
             $item->id_proveedor = $request->id_proveedor;
             $item->id_usuario = auth()->user()->id;
             $item->save();
-            toast('Historico actualizado con exito!','success');
+           
             return redirect(route('historico-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -144,7 +144,7 @@ class Historicos extends Controller
         try {
             $item = Historico::find($id);
             $item->delete();
-            toast('Eliminado con exito!','success');
+           
             return redirect(route('historico-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();

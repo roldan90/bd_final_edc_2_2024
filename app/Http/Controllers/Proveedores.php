@@ -6,7 +6,6 @@ use App\Models\Direccion;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Constraint\DirectoryExists;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class Proveedores extends Controller
 {
@@ -57,7 +56,7 @@ class Proveedores extends Controller
             $item->nombre = $request->nombre;
             $item->id_direccion = $id_direccion;
             $item->save();
-            toast('Proveedor agregado con exito!','success');
+            
             return redirect(route('proveedor-index'));
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -125,7 +124,6 @@ class Proveedores extends Controller
                 $item->nombre = $request->nombre;
                 $item->save();
                 
-                toast('Proveedor actualizado con exito!','success');
                 return redirect(route('proveedor-index'));
             } 
             
@@ -162,7 +160,6 @@ class Proveedores extends Controller
             if($item->delete()) {
                 $item = Direccion::find($id_direccion);
                 $item->delete();
-                toast('Eliminado con exito!','success');
                 return redirect(route('proveedor-index'));
             }
            
